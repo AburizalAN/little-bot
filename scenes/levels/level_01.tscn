@@ -1,0 +1,277 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/levels/game_level.gd" id="1_level"]
+[ext_resource type="PackedScene" path="res://scenes/levels/ground_segment.tscn" id="2_ground"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/obstacles/spike.tscn" id="4_spike"]
+[ext_resource type="PackedScene" path="res://scenes/obstacles/moving_obstacle.tscn" id="5_moving"]
+[ext_resource type="Script" path="res://scripts/components/hazard_component.gd" id="6_hazard"]
+[ext_resource type="PackedScene" path="res://scenes/collectibles/energy_orb.tscn" id="7_orb"]
+[ext_resource type="PackedScene" path="res://scenes/levels/finish_line.tscn" id="8_finish"]
+[ext_resource type="PackedScene" path="res://scenes/environment/cyberpunk_parallax_bg.tscn" id="9_parallax"]
+[ext_resource type="PackedScene" path="res://scenes/environment/neon_lamp.tscn" id="10_lamp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_killzone"]
+size = Vector2(6200, 32)
+
+[node name="Level01" type="Node2D"]
+script = ExtResource("1_level")
+
+[node name="CyberpunkParallaxBg" parent="." instance=ExtResource("9_parallax")]
+
+[node name="TrackDecor" type="Node2D" parent="."]
+
+[node name="Lamp01" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(140, 224)
+
+[node name="Lamp02" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(560, 224)
+
+[node name="Lamp03" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(1060, 224)
+
+[node name="Lamp04" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(1580, 224)
+
+[node name="Lamp05" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(2150, 224)
+
+[node name="Lamp06" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(2740, 224)
+
+[node name="Lamp07" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(3440, 224)
+
+[node name="Lamp08" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(3696, 224)
+
+[node name="Lamp09" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(4400, 224)
+
+[node name="Lamp10" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(5060, 224)
+
+[node name="Lamp11" parent="TrackDecor" instance=ExtResource("10_lamp")]
+position = Vector2(5460, 224)
+
+[node name="Track" type="Node2D" parent="."]
+
+[node name="GroundSeg01" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(0, 224)
+segment_width = 680.0
+
+[node name="GroundSeg02" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(728, 224)
+segment_width = 692.0
+
+[node name="GroundSeg03" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(1474, 224)
+segment_width = 766.0
+
+[node name="ElevatedBridge01" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(1920, 198)
+segment_width = 150.0
+segment_height = 10.0
+one_way = true
+
+[node name="GroundSeg04" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(2298, 224)
+segment_width = 562.0
+
+[node name="GroundSeg05" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(2920, 224)
+segment_width = 640.0
+
+[node name="GroundIsland06" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(3616, 224)
+segment_width = 160.0
+
+[node name="GroundSeg07" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(3834, 224)
+segment_width = 406.0
+
+[node name="GroundSeg08" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(4304, 224)
+segment_width = 1456.0
+
+[node name="ElevatedStep02A" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(4710, 200)
+segment_width = 110.0
+segment_height = 10.0
+one_way = true
+
+[node name="ElevatedStep02B" parent="Track" instance=ExtResource("2_ground")]
+position = Vector2(4865, 178)
+segment_width = 120.0
+segment_height = 10.0
+one_way = true
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Spike01" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(420, 224)
+
+[node name="Spike02" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(930, 224)
+
+[node name="MovingDrone01" parent="Obstacles" instance=ExtResource("5_moving")]
+position = Vector2(1190, 210)
+move_offset = Vector2(0, -46)
+cycle_duration = 1.8
+
+[node name="Spike03A" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(1680, 224)
+
+[node name="Spike03B" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(1694, 224)
+
+[node name="Spike04A" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(1955, 224)
+
+[node name="Spike04B" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(2035, 224)
+
+[node name="MovingDrone02" parent="Obstacles" instance=ExtResource("5_moving")]
+position = Vector2(2540, 212)
+move_offset = Vector2(72, 0)
+cycle_duration = 2.0
+phase_offset = 0.25
+
+[node name="Spike05" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(3110, 224)
+
+[node name="Spike06" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(3310, 224)
+
+[node name="MovingDrone03" parent="Obstacles" instance=ExtResource("5_moving")]
+position = Vector2(4050, 210)
+move_offset = Vector2(0, -52)
+cycle_duration = 1.4
+phase_offset = 0.5
+
+[node name="Spike07A" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(4500, 224)
+
+[node name="Spike07B" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(4514, 224)
+
+[node name="Spike08A" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(4745, 224)
+
+[node name="Spike08B" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(4840, 224)
+
+[node name="Spike08C" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(4940, 224)
+
+[node name="MovingDrone04" parent="Obstacles" instance=ExtResource("5_moving")]
+position = Vector2(5170, 210)
+move_offset = Vector2(44, -44)
+cycle_duration = 1.5
+phase_offset = 0.1
+
+[node name="Spike09A" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(5360, 224)
+
+[node name="Spike09B" parent="Obstacles" instance=ExtResource("4_spike")]
+position = Vector2(5374, 224)
+
+[node name="Collectibles" type="Node2D" parent="."]
+
+[node name="Orb01" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(240, 208)
+
+[node name="Orb02" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(280, 208)
+
+[node name="Orb03" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(420, 186)
+
+[node name="Orb04" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(704, 188)
+
+[node name="Orb05" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(930, 186)
+
+[node name="Orb06" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(1270, 208)
+
+[node name="Orb07" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(1447, 188)
+
+[node name="Orb08" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(1687, 184)
+
+[node name="Orb09" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(1960, 182)
+
+[node name="Orb10" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(1995, 182)
+
+[node name="Orb11" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(2030, 182)
+
+[node name="Orb12" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(2269, 186)
+
+[node name="Orb13" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(2576, 178)
+
+[node name="Orb14" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(2890, 186)
+
+[node name="Orb15" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(3110, 186)
+
+[node name="Orb16" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(3310, 186)
+
+[node name="Orb17" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(3588, 186)
+
+[node name="Orb18" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(3696, 208)
+
+[node name="Orb19" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(3805, 186)
+
+[node name="Orb20" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(4272, 184)
+
+[node name="Orb21" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(4507, 184)
+
+[node name="Orb22" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(4765, 184)
+
+[node name="Orb23" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(4915, 162)
+
+[node name="Orb24" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(4955, 162)
+
+[node name="Orb25" parent="Collectibles" instance=ExtResource("7_orb")]
+position = Vector2(5367, 184)
+
+[node name="FinishLine" parent="." instance=ExtResource("8_finish")]
+position = Vector2(5520, 224)
+
+[node name="KillZone" type="Area2D" parent="."]
+position = Vector2(2880, 296)
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("6_hazard")
+hazard_type = &"gap_killzone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("RectangleShape2D_killzone")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(72, 224)
+
+[node name="FinishPoint" type="Marker2D" parent="."]
+position = Vector2(5520, 224)
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(72, 224)

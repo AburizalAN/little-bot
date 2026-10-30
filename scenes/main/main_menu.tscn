@@ -1,0 +1,148 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_main_menu"]
+[ext_resource type="PackedScene" path="res://scenes/environment/cyberpunk_parallax_bg.tscn" id="2_parallax"]
+[ext_resource type="Script" path="res://scripts/player/player_visual_controller.gd" id="3_bot_visuals"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main_menu")
+
+[node name="CyberpunkParallaxBg" parent="." instance=ExtResource("2_parallax")]
+auto_scroll_speed = 42.0
+
+[node name="StageRoot" type="Node2D" parent="."]
+
+[node name="StageFloorBody" type="Polygon2D" parent="StageRoot"]
+color = Color(0.054902, 0.0705882, 0.14902, 1)
+polygon = PackedVector2Array(-120, 224, 600, 224, 600, 270, -120, 270)
+
+[node name="StageNeonEdge" type="Polygon2D" parent="StageRoot"]
+color = Color(0, 0.941176, 1, 1)
+polygon = PackedVector2Array(-120, 224, 600, 224, 600, 227, -120, 227)
+
+[node name="StageSubGlow" type="Polygon2D" parent="StageRoot"]
+color = Color(0.607843, 0.188235, 1, 0.8)
+polygon = PackedVector2Array(-120, 232, 600, 232, 600, 234, -120, 234)
+
+[node name="ShowcaseBot" type="Node2D" parent="StageRoot"]
+position = Vector2(240, 224)
+scale = Vector2(1.4, 1.4)
+script = ExtResource("3_bot_visuals")
+
+[node name="LeftFoot" type="Polygon2D" parent="StageRoot/ShowcaseBot"]
+position = Vector2(-3, 0)
+color = Color(0, 0.85, 0.95, 1)
+polygon = PackedVector2Array(-2, -3, 2, -3, 2, 0, -2, 0)
+
+[node name="RightFoot" type="Polygon2D" parent="StageRoot/ShowcaseBot"]
+position = Vector2(3, 0)
+color = Color(0, 0.7, 0.85, 1)
+polygon = PackedVector2Array(-2, -3, 2, -3, 2, 0, -2, 0)
+
+[node name="BodyRoot" type="Node2D" parent="StageRoot/ShowcaseBot"]
+position = Vector2(0, -3)
+
+[node name="OuterRim" type="Polygon2D" parent="StageRoot/ShowcaseBot/BodyRoot"]
+color = Color(0, 0.94, 1, 1)
+polygon = PackedVector2Array(-7, -11, -5, -13, 5, -13, 7, -11, 7, -1, 5, 0, -5, 0, -7, -1)
+
+[node name="InnerHull" type="Polygon2D" parent="StageRoot/ShowcaseBot/BodyRoot"]
+color = Color(0.09, 0.13, 0.28, 1)
+polygon = PackedVector2Array(-6, -10, -4, -12, 4, -12, 6, -10, 6, -2, -6, -2)
+
+[node name="VisorScreen" type="Polygon2D" parent="StageRoot/ShowcaseBot/BodyRoot"]
+color = Color(0.03, 0.04, 0.09, 1)
+polygon = PackedVector2Array(-4, -10, 5, -10, 5, -4, -4, -4)
+
+[node name="LeftEye" type="Polygon2D" parent="StageRoot/ShowcaseBot/BodyRoot"]
+position = Vector2(-1, -7)
+color = Color(0, 0.96, 1, 1)
+polygon = PackedVector2Array(-1, -2, 1, -2, 1, 1, -1, 1)
+
+[node name="RightEye" type="Polygon2D" parent="StageRoot/ShowcaseBot/BodyRoot"]
+position = Vector2(3, -7)
+color = Color(0, 0.96, 1, 1)
+polygon = PackedVector2Array(-1, -2, 1, -2, 1, 1, -1, 1)
+
+[node name="AntennaStem" type="Polygon2D" parent="StageRoot/ShowcaseBot/BodyRoot"]
+color = Color(0.62, 0.25, 1, 1)
+polygon = PackedVector2Array(-1, -16, 1, -16, 1, -13, -1, -13)
+
+[node name="AntennaBeacon" type="Polygon2D" parent="StageRoot/ShowcaseBot/BodyRoot"]
+color = Color(1, 0.22, 0.68, 1)
+polygon = PackedVector2Array(-2, -18, 2, -18, 2, -16, -2, -16)
+
+[node name="CenterCard" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 22.0
+offset_right = 160.0
+offset_bottom = 178.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterCard"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CenterCard/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0.96, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.68, 0.14, 0.9, 0.85)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "LITTLE BOT"
+horizontal_alignment = 1
+
+[node name="TaglineLabel" type="Label" parent="CenterCard/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.84, 0.92, 1, 0.94)
+theme_override_font_sizes/font_size = 10
+text = "A tiny robot. A big adventure."
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="CenterCard/VBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PlayButton" type="Button" parent="CenterCard/VBox"]
+custom_minimum_size = Vector2(136, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PLAY"
+
+[node name="ControlsHint" type="Label" parent="CenterCard/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.62, 0.78, 0.96, 0.82)
+theme_override_font_sizes/font_size = 8
+text = "SPACE / UP / TAP SCREEN TO JUMP"
+horizontal_alignment = 1
+
+[node name="MuteButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = 28.0
+grow_horizontal = 0
+focus_mode = 0
+text = "SFX"

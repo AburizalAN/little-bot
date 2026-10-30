@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://core/game_manager.gd" id="1_game_manager"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_01.tscn" id="2_level_01"]
+[ext_resource type="PackedScene" path="res://scenes/main/main_menu.tscn" id="3_main_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_hud.tscn" id="4_game_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="5_pause_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_over.tscn" id="6_game_over"]
+[ext_resource type="PackedScene" path="res://scenes/ui/level_completed.tscn" id="7_level_completed"]
+[ext_resource type="Script" path="res://scripts/audio/sound_controller.gd" id="8_sound"]
+
+[node name="Game" type="Node"]
+process_mode = 3
+script = ExtResource("1_game_manager")
+initial_level_scene = ExtResource("2_level_01")
+
+[node name="SoundController" type="Node" parent="."]
+script = ExtResource("8_sound")
+
+[node name="WorldContainer" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MainMenu" parent="UILayer" instance=ExtResource("3_main_menu")]
+
+[node name="GameHUD" parent="UILayer" instance=ExtResource("4_game_hud")]
+visible = false
+
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("5_pause_menu")]
+visible = false
+
+[node name="GameOver" parent="UILayer" instance=ExtResource("6_game_over")]
+visible = false
+
+[node name="LevelCompleted" parent="UILayer" instance=ExtResource("7_level_completed")]
+visible = false

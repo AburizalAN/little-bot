@@ -1,0 +1,20 @@
+[gd_scene load_steps=1 format=3]
+
+[node name="NeonLamp" type="Node2D"]
+z_index = -2
+
+[node name="Pole" type="Polygon2D" parent="."]
+color = Color(0.11, 0.14, 0.28, 1)
+polygon = PackedVector2Array(-1, -44, 1, -44, 1, 0, -1, 0)
+
+[node name="Arm" type="Polygon2D" parent="."]
+color = Color(0.16, 0.2, 0.38, 1)
+polygon = PackedVector2Array(-1, -46, 9, -46, 9, -43, -1, -43)
+
+[node name="LightFixture" type="Polygon2D" parent="."]
+color = Color(0, 0.96, 1, 0.95)
+polygon = PackedVector2Array(3, -43, 9, -43, 9, -41, 3, -41)
+
+[node name="LightConeGlow" type="Polygon2D" parent="."]
+color = Color(0, 0.92, 1, 0.08)
+polygon = PackedVector2Array(3, -41, 9, -41, 18, 0, -6, 0)

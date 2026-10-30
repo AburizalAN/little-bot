@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/levels/finish_line.gd" id="1_finish"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gate"]
+size = Vector2(16, 68)
+
+[node name="FinishLine" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_finish")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -34)
+shape = SubResource("RectangleShape2D_gate")
+
+[node name="EnergyBeam" type="Polygon2D" parent="."]
+color = Color(0, 0.96, 1, 0.35)
+polygon = PackedVector2Array(-6, -64, 6, -64, 6, 0, -6, 0)
+
+[node name="LeftPillar" type="Polygon2D" parent="."]
+color = Color(0.12, 0.16, 0.34, 1)
+polygon = PackedVector2Array(-9, -66, -6, -66, -6, 0, -9, 0)
+
+[node name="RightPillar" type="Polygon2D" parent="."]
+color = Color(0.12, 0.16, 0.34, 1)
+polygon = PackedVector2Array(6, -66, 9, -66, 9, 0, 6, 0)
+
+[node name="TopArch" type="Polygon2D" parent="."]
+color = Color(0, 0.94, 1, 1)
+polygon = PackedVector2Array(-11, -70, 11, -70, 9, -65, -9, -65)
+
+[node name="TopBeacon" type="Polygon2D" parent="."]
+color = Color(1, 0.22, 0.68, 1)
+polygon = PackedVector2Array(-4, -74, 4, -74, 3, -70, -3, -70)

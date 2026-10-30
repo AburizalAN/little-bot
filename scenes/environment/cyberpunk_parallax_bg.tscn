@@ -1,0 +1,166 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/environment/cyberpunk_parallax_bg.gd" id="1_parallax"]
+
+[node name="CyberpunkParallaxBg" type="ParallaxBackground"]
+layer = -20
+script = ExtResource("1_parallax")
+
+[node name="SkyLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="DeepSky" type="Polygon2D" parent="SkyLayer"]
+color = Color(0.0313726, 0.0352941, 0.0901961, 1)
+polygon = PackedVector2Array(0, 0, 480, 0, 480, 270, 0, 270)
+
+[node name="MidSkyBand" type="Polygon2D" parent="SkyLayer"]
+color = Color(0.0509804, 0.0588235, 0.145098, 1)
+polygon = PackedVector2Array(0, 108, 480, 108, 480, 270, 0, 270)
+
+[node name="HorizonPurpleGlow" type="Polygon2D" parent="SkyLayer"]
+color = Color(0.180392, 0.0588235, 0.321569, 0.72)
+polygon = PackedVector2Array(0, 162, 480, 162, 480, 232, 0, 232)
+
+[node name="HorizonCyanRim" type="Polygon2D" parent="SkyLayer"]
+color = Color(0, 0.82, 0.98, 0.22)
+polygon = PackedVector2Array(0, 216, 480, 216, 480, 226, 0, 226)
+
+[node name="StarsLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.08, 0)
+motion_mirroring = Vector2(480, 0)
+
+[node name="StarGroupA" type="Node2D" parent="StarsLayer"]
+
+[node name="Star01" type="Polygon2D" parent="StarsLayer/StarGroupA"]
+color = Color(0.65, 0.96, 1, 0.9)
+polygon = PackedVector2Array(26, 20, 28, 20, 28, 22, 26, 22)
+
+[node name="Star02" type="Polygon2D" parent="StarsLayer/StarGroupA"]
+color = Color(0.9, 0.95, 1, 0.85)
+polygon = PackedVector2Array(94, 44, 96, 44, 96, 46, 94, 46)
+
+[node name="Star03" type="Polygon2D" parent="StarsLayer/StarGroupA"]
+color = Color(0, 0.94, 1, 0.9)
+polygon = PackedVector2Array(168, 18, 170, 18, 170, 20, 168, 20)
+
+[node name="Star04" type="Polygon2D" parent="StarsLayer/StarGroupA"]
+color = Color(0.9, 0.95, 1, 0.8)
+polygon = PackedVector2Array(244, 58, 246, 58, 246, 60, 244, 60)
+
+[node name="Star05" type="Polygon2D" parent="StarsLayer/StarGroupA"]
+color = Color(0.65, 0.96, 1, 0.9)
+polygon = PackedVector2Array(328, 26, 330, 26, 330, 28, 328, 28)
+
+[node name="Star06" type="Polygon2D" parent="StarsLayer/StarGroupA"]
+color = Color(0.95, 0.95, 1, 0.85)
+polygon = PackedVector2Array(418, 48, 420, 48, 420, 50, 418, 50)
+
+[node name="StarGroupB" type="Node2D" parent="StarsLayer"]
+
+[node name="Star07" type="Polygon2D" parent="StarsLayer/StarGroupB"]
+color = Color(1, 0.35, 0.72, 0.85)
+polygon = PackedVector2Array(62, 72, 64, 72, 64, 74, 62, 74)
+
+[node name="Star08" type="Polygon2D" parent="StarsLayer/StarGroupB"]
+color = Color(0.75, 0.55, 1, 0.85)
+polygon = PackedVector2Array(134, 32, 136, 32, 136, 34, 134, 34)
+
+[node name="Star09" type="Polygon2D" parent="StarsLayer/StarGroupB"]
+color = Color(0, 0.92, 1, 0.85)
+polygon = PackedVector2Array(212, 34, 214, 34, 214, 36, 212, 36)
+
+[node name="Star10" type="Polygon2D" parent="StarsLayer/StarGroupB"]
+color = Color(1, 0.35, 0.72, 0.85)
+polygon = PackedVector2Array(288, 76, 290, 76, 290, 78, 288, 78)
+
+[node name="Star11" type="Polygon2D" parent="StarsLayer/StarGroupB"]
+color = Color(0.75, 0.55, 1, 0.9)
+polygon = PackedVector2Array(374, 62, 376, 62, 376, 64, 374, 64)
+
+[node name="Star12" type="Polygon2D" parent="StarsLayer/StarGroupB"]
+color = Color(0, 0.92, 1, 0.85)
+polygon = PackedVector2Array(454, 24, 456, 24, 456, 26, 454, 26)
+
+[node name="FarCityLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.22, 0)
+motion_mirroring = Vector2(480, 0)
+
+[node name="FarSkyline" type="Polygon2D" parent="FarCityLayer"]
+color = Color(0.0588235, 0.0705882, 0.164706, 1)
+polygon = PackedVector2Array(0, 228, 0, 138, 42, 138, 42, 164, 72, 164, 72, 96, 124, 96, 124, 152, 168, 152, 168, 112, 218, 112, 218, 168, 256, 168, 256, 82, 314, 82, 314, 146, 358, 146, 358, 108, 412, 108, 412, 156, 446, 156, 446, 124, 480, 124, 480, 228)
+
+[node name="FarSpireA" type="Polygon2D" parent="FarCityLayer"]
+color = Color(0.58, 0.2, 0.95, 0.65)
+polygon = PackedVector2Array(97, 76, 99, 76, 99, 96, 97, 96)
+
+[node name="FarStripA" type="Polygon2D" parent="FarCityLayer"]
+color = Color(0.62, 0.22, 1, 0.45)
+polygon = PackedVector2Array(84, 106, 86, 106, 86, 196, 84, 196)
+
+[node name="FarSpireB" type="Polygon2D" parent="FarCityLayer"]
+color = Color(1, 0.2, 0.6, 0.65)
+polygon = PackedVector2Array(284, 62, 286, 62, 286, 82, 284, 82)
+
+[node name="FarStripB" type="Polygon2D" parent="FarCityLayer"]
+color = Color(0, 0.85, 1, 0.4)
+polygon = PackedVector2Array(270, 92, 298, 92, 298, 95, 270, 95)
+
+[node name="FarStripC" type="Polygon2D" parent="FarCityLayer"]
+color = Color(0.62, 0.22, 1, 0.45)
+polygon = PackedVector2Array(384, 118, 386, 118, 386, 200, 384, 200)
+
+[node name="MidCityLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.48, 0)
+motion_mirroring = Vector2(480, 0)
+
+[node name="MidTower01" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0.0745098, 0.0941176, 0.207843, 1)
+polygon = PackedVector2Array(16, 126, 68, 126, 68, 228, 16, 228)
+
+[node name="MidTower01WinA" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0, 0.92, 1, 0.72)
+polygon = PackedVector2Array(24, 136, 60, 136, 60, 139, 24, 139)
+
+[node name="MidTower01WinB" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0, 0.92, 1, 0.5)
+polygon = PackedVector2Array(24, 150, 48, 150, 48, 153, 24, 153)
+
+[node name="MidTower02" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0.0745098, 0.0941176, 0.207843, 1)
+polygon = PackedVector2Array(110, 142, 164, 142, 164, 228, 110, 228)
+
+[node name="MidTower02Sign" type="Polygon2D" parent="MidCityLayer"]
+color = Color(1, 0.2, 0.62, 0.8)
+polygon = PackedVector2Array(118, 150, 156, 150, 156, 154, 118, 154)
+
+[node name="MidTower03" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0.0745098, 0.0941176, 0.207843, 1)
+polygon = PackedVector2Array(204, 114, 266, 114, 266, 228, 204, 228)
+
+[node name="MidTower03WinA" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0, 0.94, 1, 0.78)
+polygon = PackedVector2Array(214, 124, 256, 124, 256, 127, 214, 127)
+
+[node name="MidTower03WinB" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0.65, 0.24, 1, 0.75)
+polygon = PackedVector2Array(214, 138, 256, 138, 256, 141, 214, 141)
+
+[node name="MidTower03WinC" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0, 0.94, 1, 0.55)
+polygon = PackedVector2Array(214, 152, 242, 152, 242, 155, 214, 155)
+
+[node name="MidTower04" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0.0745098, 0.0941176, 0.207843, 1)
+polygon = PackedVector2Array(310, 132, 368, 132, 368, 228, 310, 228)
+
+[node name="MidTower04Sign" type="Polygon2D" parent="MidCityLayer"]
+color = Color(1, 0.2, 0.62, 0.75)
+polygon = PackedVector2Array(320, 142, 358, 142, 358, 145, 320, 145)
+
+[node name="MidTower05" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0.0745098, 0.0941176, 0.207843, 1)
+polygon = PackedVector2Array(406, 148, 458, 148, 458, 228, 406, 228)
+
+[node name="MidTower05Win" type="Polygon2D" parent="MidCityLayer"]
+color = Color(0, 0.92, 1, 0.7)
+polygon = PackedVector2Array(414, 158, 450, 158, 450, 161, 414, 161)

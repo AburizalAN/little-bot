@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/collectibles/energy_orb.gd" id="1_orb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_orb"]
+radius = 7.0
+
+[node name="EnergyOrb" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_orb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_orb")
+
+[node name="VisualRoot" type="Node2D" parent="."]
+
+[node name="OuterAura" type="Polygon2D" parent="VisualRoot"]
+color = Color(0, 0.92, 1, 0.35)
+polygon = PackedVector2Array(0, -7, 5, -5, 7, 0, 5, 5, 0, 7, -5, 5, -7, 0, -5, -5)
+
+[node name="MidDiamond" type="Polygon2D" parent="VisualRoot"]
+color = Color(0, 0.96, 1, 0.95)
+polygon = PackedVector2Array(0, -4.5, 4.5, 0, 0, 4.5, -4.5, 0)
+
+[node name="InnerCore" type="Polygon2D" parent="VisualRoot"]
+color = Color(0.88, 1, 1, 1)
+polygon = PackedVector2Array(0, -2, 2, 0, 0, 2, -2, 0)
